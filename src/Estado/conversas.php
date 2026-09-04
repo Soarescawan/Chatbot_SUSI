@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-const STATE_FILE = __DIR__ . '/conversas.json';
+const STATE_FILE = __DIR__ . '/../../storage/conversas.json';
 
 function loadStates(): array
 {
@@ -14,5 +14,8 @@ function saveStates(array $states): void
 {
     $limit = time() - 86400 * 7;
     $states = array_filter($states, static fn(array $state): bool => ($state['updated_at'] ?? 0) >= $limit);
+    if (!is_dir(dirname(STATE_FILE))) {
+        mkdir(dirname(STATE_FILE), 0775, true);
+    }
     file_put_contents(STATE_FILE, json_encode($states, JSON_UNESCAPED_UNICODE), LOCK_EX);
 }

@@ -9,3 +9,7 @@ acesso.txt
 conversas.json
 recebido.txt
 *.log
+
+# Dados e saídas gerados durante a execução
+storage/*
+!storage/.gitkeep

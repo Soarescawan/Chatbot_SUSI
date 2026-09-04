@@ -10,7 +10,7 @@ function conectarBanco(): PDO
         );
     }
 
-    $config = carregarConfiguracaoBanco(__DIR__ . '/.env');
+    $config = carregarConfiguracaoBanco(dirname(__DIR__, 2) . '/.env');
     $host = $config['DB_HOST'] ?? '';
     $port = $config['DB_PORT'] ?? '3306';
     $database = $config['DB_DATABASE'] ?? '';

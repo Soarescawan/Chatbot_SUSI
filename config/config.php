@@ -1,6 +1,8 @@
 <?php
 declare(strict_types=1);
 
+// Leitura centralizada das configurações de ambiente.
+
 function loadEnvFile(string $path): array
 {
     if (!is_readable($path)) return [];

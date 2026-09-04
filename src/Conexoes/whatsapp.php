@@ -1,6 +1,8 @@
 <?php
 declare(strict_types=1);
 
+// Cliente da API do WhatsApp.
+
 function sendWhatsAppMessage(string $to, string $text, string $token, string $phoneId, string $apiVersion): void
 {
     $ch = curl_init("https://graph.facebook.com/{$apiVersion}/{$phoneId}/messages");

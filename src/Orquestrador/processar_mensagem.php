@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-require_once __DIR__ . '/consultas.php';
-require_once __DIR__ . '/conversas.php';
-require_once __DIR__ . '/openia.php';
+require_once __DIR__ . '/../Consultas/consultas.php';
+require_once __DIR__ . '/../Estado/conversas.php';
+require_once __DIR__ . '/../Conexoes/openia.php';
 require_once __DIR__ . '/susi.php';
-require_once __DIR__ . '/whatsapp.php';
+require_once __DIR__ . '/../Conexoes/whatsapp.php';
 
 function processarMensagemRecebida(array $message, string $accessToken, string $phoneId, string $apiVersion): void
 {

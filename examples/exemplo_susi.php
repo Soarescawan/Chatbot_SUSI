@@ -3,7 +3,7 @@
  * SUSi - Assistente Virtual do SUS Pelotas
  */
 
-require_once __DIR__ . '/config.php';
+require_once __DIR__ . '/../config/config.php';
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -13,7 +13,7 @@ if (session_status() === PHP_SESSION_NONE) {
    CONEXÃO COM O BANCO (PDO)
    ============================================================ */
 function db_conectar() {
-    $env = loadEnvFile(__DIR__ . '/.env');
+    $env = loadEnvFile(__DIR__ . '/../.env');
     $host = configValue('DB_HOST', $env);
     $user = configValue('DB_USERNAME', $env);
     $pass = configValue('DB_PASSWORD', $env);
@@ -44,7 +44,7 @@ function db_conectar() {
 /* ============================================================
    CHAVE GEMINI
    ============================================================ */
-$apiKey = configValue('GEMINI_API_KEY', loadEnvFile(__DIR__ . '/.env'));
+$apiKey = configValue('GEMINI_API_KEY', loadEnvFile(__DIR__ . '/../.env'));
 
 if ($apiKey === '') {
     throw new RuntimeException('Configure GEMINI_API_KEY no arquivo .env.');
@@ -371,7 +371,7 @@ Agora gere somente o SQL correto ou a mensagem específica quando não houver co
 $raw_gemini = chamarGemini($promptSQL);
 $raw_clean = trim(preg_replace("/```(sql)?|```/", "", $raw_gemini));
 
-file_put_contents(__DIR__ . "/debug_sql.txt",
+file_put_contents(__DIR__ . "/../storage/debug_sql.txt",
 "====================\nPERGUNTA: $msgRaw\nRAW:\n$raw_gemini\n\n",
 FILE_APPEND);
 

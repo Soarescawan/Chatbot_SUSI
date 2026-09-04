@@ -1,6 +1,6 @@
 <?php
 
-require_once "database.php";
+require_once __DIR__ . '/../Conexoes/database.php';
 
 function buscarUnidade(string $nome): ?array
 {

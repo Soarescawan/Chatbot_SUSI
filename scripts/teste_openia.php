@@ -1,6 +1,6 @@
 <?php
 
-require_once "openia.php";
+require_once __DIR__ . '/../src/Conexoes/openia.php';
 
 $mensagem = " ond tm pst ";
 

@@ -1,8 +1,10 @@
 <?php
 
+require_once __DIR__ . '/../../config/config.php';
+
 function corrigirMensagem($mensagem)
 {
-    $env = parse_ini_file(__DIR__ . "/.env");
+    $env = loadEnvFile(dirname(__DIR__, 2) . '/.env');
 
     $apiKey = $env["OPENAI_API_KEY"] ?? ""; 
 
@@ -173,7 +175,7 @@ function corrigirMensagem($mensagem)
 function interpretarMensagem(string $texto): array
 {
     $fallback = interpretarMensagemLocalmente($texto);
-    $env = parse_ini_file(__DIR__ . '/.env') ?: [];
+    $env = loadEnvFile(dirname(__DIR__, 2) . '/.env');
     $apiKey = $env['OPENAI_API_KEY'] ?? '';
 
     if ($apiKey === '') {

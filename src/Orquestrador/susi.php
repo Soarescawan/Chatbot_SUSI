@@ -1,6 +1,8 @@
 <?php
 declare(strict_types=1);
 
+// Fluxos conversacionais e respostas da SUSi.
+
 function responderSusi(string $input, string $step): array
 {
     $text = normalizar($input);
