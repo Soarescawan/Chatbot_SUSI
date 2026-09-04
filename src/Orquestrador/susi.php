@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-// Fluxos conversacionais e respostas da SUSi.
+// Fluxos conversacionais e respostas da SUSi principal parte do catbot.
 
 function responderSusi(string $input, string $step): array
 {

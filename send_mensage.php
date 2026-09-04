@@ -5,6 +5,8 @@
 
 // Lê as credenciais do ambiente do servidor ou do arquivo .env local.
 $localEnv = carregarEnvLocal(__DIR__ . '/.env');
+
+
 $META_ACCESS_TOKEN = valorEnv(['WHATSAPP_ACCESS_TOKEN', 'META_ACCESS_TOKEN'], $localEnv);
 $WHATSAPP_PHONE_ID = valorEnv(['WHATSAPP_PHONE_NUMBER_ID', 'WHATSAPP_PHONE_ID'], $localEnv);
 $GRAPH_API_VERSION = valorEnv('GRAPH_API_VERSION', $localEnv) ?: 'v23.0';
@@ -16,7 +18,7 @@ $input = file_get_contents('php://input');
 $data = json_decode($input, true);
 
 $message_text = $data['text'] ?? null;
-$to_number = $data['to_number'] ?? null;
+$to_number = "555195106387";//$data['to_number'] ?? null;
 
 if (empty($message_text) || empty($to_number)) {
     http_response_code(400);

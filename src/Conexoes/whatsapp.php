@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-// Cliente da API do WhatsApp.
+// Cliente da API do WhatsApp Aqui faz a ligacao pega a senha .
 
 function sendWhatsAppMessage(string $to, string $text, string $token, string $phoneId, string $apiVersion): void
 {

@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-/** Abre a conexão MySQL usada pelas consultas de unidades de saúde. */
+/** auuuuu Abre a conexão MySQL usada pelas consultas de unidades de saúde. */
 function conectarBanco(): PDO
 {
     if (!in_array('mysql', PDO::getAvailableDrivers(), true)) {

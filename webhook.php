@@ -3,13 +3,12 @@ declare(strict_types=1);
 
 /*
  * Ponto de entrada do webhook da Meta.
- * Este arquivo cuida somente da validação e do recebimento do evento.
  */
 
-require_once __DIR__ . '/config/config.php';
-require_once __DIR__ . '/src/Orquestrador/processar_mensagem.php';
+require_once __DIR__ . '/config.php';
+require_once __DIR__ . '/processar_mensagem.php';
 
-const LOG_FILE = __DIR__ . '/storage/recebido.txt';
+const LOG_FILE = __DIR__ . '/recebido.txt';
 
 $localEnv = loadEnvFile(__DIR__ . '/.env');
 $verifyToken = configValue(['WHATSAPP_VERIFY_TOKEN', 'META_VERIFY_TOKEN'], $localEnv);
@@ -29,9 +28,6 @@ if ($method !== 'POST') {
 }
 
 $raw = file_get_contents('php://input');
-if (!is_dir(dirname(LOG_FILE))) {
-    mkdir(dirname(LOG_FILE), 0775, true);
-}
 file_put_contents(LOG_FILE, date(DATE_ATOM) . ' ' . $raw . PHP_EOL, FILE_APPEND | LOCK_EX);
 $payload = json_decode($raw, true);
 

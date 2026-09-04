@@ -30,7 +30,7 @@
     <script>
         // 🚨 IMPORTANTE: Você precisará de um endpoint PHP separado para ENVIAR mensagens DA WEB para o WhatsApp.
         // O seu webhook.php atual só lida com o RECEBIMENTO da Meta.
-        const SEND_ENDPOINT = 'send_mensage.php';
+        const SEND_ENDPOINT = 'send_message.php'; // Crie este arquivo no seu servidor
         const CHAT_BOX = document.getElementById('chat-box');
         const MESSAGE_INPUT = document.getElementById('message-input');
         
