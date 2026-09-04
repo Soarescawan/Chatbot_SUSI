@@ -1,0 +1,11 @@
+# Configurações e credenciais locais
+.env
+.env.*
+!.env.example
+.vscode/sftp.json
+
+# Arquivos locais que podem conter dados privados ou de operação
+acesso.txt
+conversas.json
+recebido.txt
+*.log
