@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-/** auuuuu Abre a conexão MySQL usada pelas consultas de unidades de saúde. */
+/** aAbre a conexão MySQL usada pelas consultas de unidades de saúde. */
 function conectarBanco(): PDO
 {
     if (!in_array('mysql', PDO::getAvailableDrivers(), true)) {
@@ -10,7 +10,7 @@ function conectarBanco(): PDO
         );
     }
 
-    $config = carregarConfiguracaoBanco(dirname(__DIR__, 2) . '/.env');
+    $config = carregarConfiguracaoBanco(__DIR__ . '/.env');
     $host = $config['DB_HOST'] ?? '';
     $port = $config['DB_PORT'] ?? '3306';
     $database = $config['DB_DATABASE'] ?? '';

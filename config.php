@@ -36,3 +36,17 @@ function configValue(string|array $keys, array $localEnv): string
 
     return '';
 }
+
+function appLog(string $message): void
+{
+    $dir = __DIR__ . '/storage';
+    if (!is_dir($dir)) {
+        @mkdir($dir, 0775, true);
+    }
+
+    @file_put_contents(
+        $dir . '/app.log',
+        '[' . date(DATE_ATOM) . '] ' . $message . PHP_EOL,
+        FILE_APPEND | LOCK_EX
+    );
+}
